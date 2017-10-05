@@ -14,6 +14,7 @@
  * a little simpler to work with.
  */
 
+
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -28,6 +29,8 @@ var Engine = (function(global) {
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+
+
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -47,6 +50,7 @@ var Engine = (function(global) {
          */
         update(dt);
         render();
+
 
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
@@ -80,9 +84,14 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        //checkCollisions();
     }
 
+function checkCollision(){
+  if(player.y+131>=this.y+90)
+  checkCollisions();
+
+}
     /* This is called by the update function  and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls
      * their update() methods. It will then call the update function for your
@@ -172,7 +181,7 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-princess-girl.png'
+        'images/char-pink-girl.png'
     ]);
     Resources.onReady(init);
 
